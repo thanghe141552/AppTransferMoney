@@ -1,0 +1,7 @@
+Record: {3f2504e8-4f89-11d3-9a0c-0305e82c3301,3f2504e7-4f89-11d3-9a0c-0305e82c3301,} added fail with message Invalid amount format
+Record: {3f2504e-wrong id,3f2504e7-4f89-11d3-9a0c-0305e82c3301,50.0} added fail with message Invalid fromAccount UUID
+Record: {3f2504e8-4f89-11d3-9a0c-0305e82c3301,3f2504e7-4f89-11d3-9a0c-0305e82c3301,wrong format amount} added fail with message Invalid amount format
+Record: {3f2504e6-4f89-11d3-9a0c-0305e82c3301,3f2504e8-4f89-11d3-9a0c-0305e82c3301,100.0} added successfully
+Record: {3f2504e8-4f89-11d3-9a0c-0305e82c3301,3f2504e7-4f89-11d3-9a0c-0305e82c3301,50.0} added successfully
+Record: {3f2504e8-4f89-11d3-9a0c-0305e82c3301,3f2504e7-4f89-11d3-9a0c-0305e82c3301} added fail with message Invalid file line format
+Record: {3f2504e8-4f89-11d3-9a0c-0305e82c3301,3f2504e7-4f89-11d3-9a0c-0305e82c3301,100000000000} added fail with message Amount transfer exceed current budget

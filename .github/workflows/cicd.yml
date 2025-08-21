@@ -1,0 +1,93 @@
+name: ci-cd pipeline
+
+on:
+  push:
+    branches: [ "deploy" ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        build: [maven] # or [gradle] if you prefer
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: ${{ matrix.build }}
+
+      - name: Build & Test with JaCoCo (Maven)
+        if: matrix.build == 'maven'
+        run: mvn -B -DskipTests=false clean verify jacoco:report
+
+      - name: Build & Test (Gradle)
+        if: matrix.build == 'gradle'
+        run: ./gradlew clean test build
+
+      - name: Test reports (JUnit)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jacoco
+          path: |
+            **/surefire-reports/*
+            **/test-results/test/*
+            **/site/jacoco/*
+          if-no-files-found: ignore
+
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v4
+        with:
+          files: target/site/jacoco/jacoco.xml
+          token: ${{ secrets.CODECOV_TOKEN }} # not needed for public repos
+
+  docker-image:
+    needs: build-test
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build image
+        run: |
+          IMAGE=ghcr.io/${{ github.repository }}/app:${{ github.sha }}
+          docker build -t $IMAGE .
+          echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+
+      - name: Push image
+        run: docker push $IMAGE
+
+  deploy-vm:
+    # choose one deploy job: VM or K8s
+    needs: docker-image
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
+    steps:
+      - name: SSH deploy (pull & restart systemd)
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_KEY }}
+          port: ${{ secrets.SSH_PORT }}
+          script: |
+            IMAGE="ghcr.io/${{ github.repository }}/app:${{ github.sha }}"
+            sudo docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+            sudo docker pull $IMAGE
+            sudo docker stop app || true
+            sudo docker rm app || true
+            sudo docker run -d --name app --restart=always -p 8080:8080 $IMAGE
+            sudo systemctl reload nginx || true
