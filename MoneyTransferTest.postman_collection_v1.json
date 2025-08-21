@@ -1,0 +1,1261 @@
+{
+	"info": {
+		"_postman_id": "b82d5ca3-49cd-40ae-ab9b-44e6692917fb",
+		"name": "MoneyTransferTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44839016"
+	},
+	"item": [
+		{
+			"name": "AccountHolder",
+			"item": [
+				{
+					"name": "CreateAccountHolder",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"MBB\",\r\n  \"address\": \"123 Main Street, Springfield\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account-holder/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account-holder",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Role",
+			"item": [
+				{
+					"name": "CreateRole1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"roleName\": \"ADMIN\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/role/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"role",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRole2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"roleName\": \"MANAGER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/role/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"role",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateRole3",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"roleName\": \"USER\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/role/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"role",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "CreateUser1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Thang\",\r\n  \"email\": \"Thang@example.com\",\r\n  \"phone\": \"+333332222\",\r\n  \"address\": \"150 Main St, Cityville\",\r\n  \"roleId\": \"{{Admin Role Id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"phone\": \"+1234567890\",\r\n  \"address\": \"123 Main St, Cityville\",\r\n  \"roleId\": \"{{User Role Id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/user/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"user",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Account",
+			"item": [
+				{
+					"name": "CreateAccount 1 for user 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"{{User 1 Id}}\",\r\n  \"accountHolderId\": \"{{Account holder Id}}\",\r\n  \"accountName\": \"{{Acocunt name 1}}\",\r\n  \"password\": \"{{Password account 1}}\",\r\n  \"accountType\": \"SINGLE_ACCOUNT\",\r\n  \"amount\": 1000.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccount 2 for user 1",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"{{User 1 Id}}\",\r\n  \"accountHolderId\": \"{{Account holder Id}}\",\r\n  \"accountName\": \"account 2\",\r\n  \"password\": \"secureP@ssword123\",\r\n  \"accountType\": \"BUSINESS_OWNER_ACCOUNT\",\r\n  \"amount\": 200.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccount 3 for user 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"{{User 2 Id}}\",\r\n  \"accountHolderId\": \"{{Account holder Id}}\",\r\n  \"accountName\": \"account 3\",\r\n  \"password\": \"secureP@ssword123\",\r\n  \"accountType\": \"STUDENT_ACCOUNT\",\r\n  \"amount\": 600.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CreateAccount 4 for user 2",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"{{User 2 Id}}\",\r\n  \"accountHolderId\": \"{{Account holder Id}}\",\r\n  \"accountName\": \"account 4\",\r\n  \"password\": \"secureP@ssword123\",\r\n  \"accountType\": \"FOREIGN_ACCOUNT\",\r\n  \"amount\": 800.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"create"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authenticate",
+			"item": [
+				{
+					"name": "Login Account 1 (ADMIN role)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountName\" : \"{{Acocunt name 1}}\",\r\n    \"password\": \"{{Password account 1}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/auth/login/jwt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"auth",
+								"login",
+								"jwt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Account 3 (USER role)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountName\" : \"{{Account name 3}}\",\r\n    \"password\": \"{{Password account 3}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/auth/login/jwt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"auth",
+								"login",
+								"jwt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Account 4 (USER role)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"accountName\" : \"{{Account name 4}}\",\r\n    \"password\": \"{{Password account 4}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/auth/login/jwt",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"auth",
+								"login",
+								"jwt"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account 1 create transaction (with owned account) -> Success",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OTdkY2ExNi0zNzM1LTQxZmEtOGQwZi0zZjhkYzcyYzEwNzciLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0NzcyMTcwNiwiZXhwIjoxNzQ3NzI1MzA2fQ.-caUR7UGGXPBkUGe-BeAh-avFZNXxu-1252crtv_5SU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fromAccountId\": \"{{Account 1 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 3 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/transaction/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account 1 create transaction (with other account) -> Success",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OTdkY2ExNi0zNzM1LTQxZmEtOGQwZi0zZjhkYzcyYzEwNzciLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0NzcyMTcwNiwiZXhwIjoxNzQ3NzI1MzA2fQ.-caUR7UGGXPBkUGe-BeAh-avFZNXxu-1252crtv_5SU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fromAccountId\": \"{{Account 2 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 3 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/transaction/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account 1 create multiple transaction (with other account) -> Success",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI1OTdkY2ExNi0zNzM1LTQxZmEtOGQwZi0zZjhkYzcyYzEwNzciLCJyb2xlIjoiUk9MRV9BRE1JTiIsImlhdCI6MTc0NzcyMzE5OSwiZXhwIjoxNzQ3NzI2Nzk5fQ.LYHNBxE6foAT2vAagSYxRw3IuoBqPF9VWsQZ1xQZ_UU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "[\r\n{\r\n  \"fromAccountId\": \"{{Account 1 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 3 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n},\r\n{\r\n  \"fromAccountId\": \"{{Account 1 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 3 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n}\r\n,\r\n{\r\n  \"fromAccountId\": \"{{Account 1 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 3 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n},\r\n{\r\n  \"fromAccountId\": \"{{Account 2 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 4 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n}\r\n]",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/transaction/createMultiple",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"createMultiple"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account 3 create transaction (with owned account) -> Success",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzIxNzI3LCJleHAiOjE3NDc3MjUzMjd9.iGWdxj1fdl_gCok2Wfcur7Y0Dvyak91rHL3REVrJpAM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fromAccountId\": \"{{Account 3 Id (User 2)}}\",\r\n  \"toAccountId\": \"{{Account 1 Id (User 1)}}\",\r\n  \"amount\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/transaction/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Account 3 create transaction (with other account) -> Unauthorized",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzIxNzI3LCJleHAiOjE3NDc3MjUzMjd9.iGWdxj1fdl_gCok2Wfcur7Y0Dvyak91rHL3REVrJpAM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"fromAccountId\": \"{{Account 2 Id (User 1)}}\",\r\n  \"toAccountId\": \"{{Account 4 Id (User 2)}}\",\r\n  \"amount\": 10.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/transaction/create",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(1. Derived Query)FindAccountByType",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTE5ZGZlNi1jYWNkLTRhMDUtYWQ2Zi0yMDU0OTliOTFjMGUiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI5NzAwLCJleHAiOjE3NDc3MzMzMDB9.diLVeeQLM_XgHI6_7d7Mrhi-8V1rq6H6USD7fOeO0vY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": \"{{User 2 Id}}\",\r\n  \"accountHolderId\": \"{{Account holder Id}}\",\r\n  \"accountName\": \"account 4\",\r\n  \"password\": \"secureP@ssword123\",\r\n  \"accountType\": \"FOREIGN_ACCOUNT\",\r\n  \"amount\": 800.00\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/getByAccountType?accountType=SINGLE_ACCOUNT",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"getByAccountType"
+							],
+							"query": [
+								{
+									"key": "accountType",
+									"value": "SINGLE_ACCOUNT"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(2. Paging & 3. Relationship fetching)FindAccountTransaction (display page)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiI5OTE5ZGZlNi1jYWNkLTRhMDUtYWQ2Zi0yMDU0OTliOTFjMGUiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI5NzAwLCJleHAiOjE3NDc3MzMzMDB9.diLVeeQLM_XgHI6_7d7Mrhi-8V1rq6H6USD7fOeO0vY",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/account/{{Account 3 Id (User 2)}}/transactions?page=0&size=10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"{{Account 3 Id (User 2)}}",
+								"transactions"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(2. Scrolling)FindAccountTransaction (display window) (find first 3 element)",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/{{Account 3 Id (User 2)}}/transactions/scroll",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"{{Account 3 Id (User 2)}}",
+								"transactions",
+								"scroll"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "59313ac1-66e5-420c-a1be-7e966b44c231",
+									"disabled": true
+								},
+								{
+									"key": "createdTime",
+									"value": "2025-05-13T18:26:16.111808",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(4. Projection)FindAccountTransactionTransfer (display accountSummary)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/account/{{Account 3 Id (User 2)}}/getTransactionTransfer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"{{Account 3 Id (User 2)}}",
+								"getTransactionTransfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(5. QBE)FindAccountByAccountTypeAndUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/account/getByAccountTypeAndUser",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"getByAccountTypeAndUser"
+							],
+							"query": [
+								{
+									"key": "accountType",
+									"value": "SINGLE_ACCOUNT",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "{{User 1 Id}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(9. CustomRepo)FindAccountByAccountTypeAndUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"accountIds\": [\"{{Account 1 Id (User 1)}}\", \"{{Account 2 Id (User 1)}}\"],\r\n  \"dateFrom\": \"2025-05-13T00:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/account/amountPerMonth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"account",
+								"amountPerMonth"
+							],
+							"query": [
+								{
+									"key": "accountType",
+									"value": "SINGLE_ACCOUNT",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "{{User 1 Id}}",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(1. Derived Query)FindTransactionByDate",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/transaction/getByDate?createTime=2025-05-13T15:29:22.217",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"getByDate"
+							],
+							"query": [
+								{
+									"key": "createTime",
+									"value": "2025-05-13T15:29:22.217"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(1. @Query / @NativeQuery)FindTotalAmountInWeek",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8088/transaction/getTotalAmountByDate?time=2025-05-13T15:29:22.217",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"getTotalAmountByDate"
+							],
+							"query": [
+								{
+									"key": "time",
+									"value": "2025-05-13T15:29:22.217"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "(5. Spec API)FindTransactionByListStatusAndTimeAndAmount",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkNDdjMGIyYS0yZTU3LTQ4NzYtOWZmYS01YTU1Nzg1YzNjMzgiLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWF0IjoxNzQ3NzI3MjEzLCJleHAiOjE3NDc3MzA4MTN9.T_I3oObIbKksxNJ4snQDfbyGyFjem7M97EDe6bqCZSg",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-User-Id",
+								"value": "{{Example User Id}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"statusList\": [\"APPROVED\", \"DECLINED\"],\r\n  \"amountMin\": 0.00,\r\n  \"amountMax\": 100000000.00,\r\n  \"createdDateFrom\": \"2025-05-13T00:00:00\",\r\n  \"createdDateTo\": \"2025-05-13T23:59:59\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8088/transaction/search",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8088",
+							"path": [
+								"transaction",
+								"search"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Example User Id",
+			"value": "Thang",
+			"type": "default"
+		},
+		{
+			"key": "Account holder Id",
+			"value": "9548501f-0b46-4054-99de-545759b08e83",
+			"type": "string"
+		},
+		{
+			"key": "Admin Role Id",
+			"value": "467324fc-f1c7-4a12-9af4-8a7e1414f1bb",
+			"type": "string"
+		},
+		{
+			"key": "User Role Id",
+			"value": "a04c4336-d9ac-473d-bb37-dfb837265f34",
+			"type": "string"
+		},
+		{
+			"key": "User 1 Id",
+			"value": "9f7d27e5-ca1a-4383-9eec-339c1d95a5c9",
+			"type": "string"
+		},
+		{
+			"key": "User 2 Id",
+			"value": "7187f3a4-54b1-4f10-a57c-867da3fe208a",
+			"type": "string"
+		},
+		{
+			"key": "Account 1 Id (User 1)",
+			"value": "597dca16-3735-41fa-8d0f-3f8dc72c1077",
+			"type": "string"
+		},
+		{
+			"key": "Account 2 Id (User 1)",
+			"value": "55b86068-4ecf-47de-98dc-8e6c68026f91",
+			"type": "string"
+		},
+		{
+			"key": "Account 3 Id (User 2)",
+			"value": "d47c0b2a-2e57-4876-9ffa-5a55785c3c38",
+			"type": "string"
+		},
+		{
+			"key": "Account 4 Id (User 2)",
+			"value": "9919dfe6-cacd-4a05-ad6f-205499b91c0e",
+			"type": "string"
+		},
+		{
+			"key": "Random UUID",
+			"value": "b6f9a990-548c-4c6b-a70c-e1bf79c568bb",
+			"type": "string"
+		},
+		{
+			"key": "Password account 1",
+			"value": "secureP@ssword123",
+			"type": "string"
+		},
+		{
+			"key": "Acocunt name 1",
+			"value": "account 1",
+			"type": "string"
+		},
+		{
+			"key": "Account name 3",
+			"value": "account 3",
+			"type": "string"
+		},
+		{
+			"key": "Password account 3",
+			"value": "secureP@ssword123",
+			"type": "string"
+		},
+		{
+			"key": "Account name 4",
+			"value": "account 4",
+			"type": "string"
+		},
+		{
+			"key": "Password account 4",
+			"value": "secureP@ssword123",
+			"type": "string"
+		}
+	]
+}
