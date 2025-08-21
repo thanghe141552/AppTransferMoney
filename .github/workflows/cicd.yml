@@ -59,7 +59,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.PASS_TOKEN }}
 
       - name: Build image
         run: |
@@ -85,7 +85,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             IMAGE="ghcr.io/${{ github.repository }}/app:${{ github.sha }}"
-            sudo docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }}
+            sudo docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.PASS_TOKEN }}
             sudo docker pull $IMAGE
             sudo docker stop app || true
             sudo docker rm app || true
