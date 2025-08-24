@@ -1,6 +1,4 @@
 
-Truststore cacerts pass thang06112000
-
 Set up env
 
 1. Change config sql username password in application.properties
