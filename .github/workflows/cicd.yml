@@ -3,6 +3,7 @@ name: ci-cd pipeline
 on:
   push:
     branches: [ "deploy" ]
+  workflow_dispatch:
 
 jobs:
   build-test:
