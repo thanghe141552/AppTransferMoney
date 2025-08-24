@@ -69,25 +69,3 @@ jobs:
 
       - name: Push image
         run: docker push $IMAGE
-
-  deploy-vm:
-    # choose one deploy job: VM or K8s
-    needs: docker-image
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: SSH deploy (pull & restart systemd)
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          port: ${{ secrets.SSH_PORT }}
-          script: |
-            IMAGE="ghcr.io/${{ github.repository }}/app:${{ github.sha }}"
-            sudo docker login ghcr.io -u ${{ github.actor }} -p ${{ secrets.PASS_TOKEN }}
-            sudo docker pull $IMAGE
-            sudo docker stop app || true
-            sudo docker rm app || true
-            sudo docker run -d --name app --restart=always -p 8080:8080 $IMAGE
-            sudo systemctl reload nginx || true
