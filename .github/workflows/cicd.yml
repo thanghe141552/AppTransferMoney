@@ -85,9 +85,16 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.PASS_TOKEN }}
 
-      - name: Build image
+      - name: Build image with GHCR
         run: |
           IMAGE=ghcr.io/${{ github.repository }}/app:${{ github.sha }}
+          docker build -f docker/Dockerfile -t $IMAGE .
+          echo "IMAGE=$IMAGE" >> $GITHUB_ENV
+
+      - name: Build image with Docker Hub
+        if: steps.ghcr_login.outcome == 'failure'
+        run: |
+          IMAGE=${{ secrets.DOCKERHUB_USERNAME }}/app:${{ github.sha }}
           docker build -f docker/Dockerfile -t $IMAGE .
           echo "IMAGE=$IMAGE" >> $GITHUB_ENV
 
