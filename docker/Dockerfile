@@ -5,7 +5,7 @@ FROM openjdk:21-jdk-slim
 WORKDIR /app
 
 # Copy built JAR file into container
-COPY target/app.jar app.jar
+COPY target/demo-0.0.1-SNAPSHOT.jar demo-0.0.1-SNAPSHOT.jar
 
 # Expose port (matches Spring Boot default)
 EXPOSE 8088
