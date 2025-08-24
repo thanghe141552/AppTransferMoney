@@ -46,6 +46,12 @@ jobs:
           files: target/site/jacoco/jacoco.xml
           token: ${{ secrets.CODECOV_TOKEN }} # not needed for public repos
 
+      - name: Upload JAR
+        uses: actions/upload-artifact@v4
+        with:
+          name: app-transfer-money
+          path: target/*.jar
+
   docker-image:
     needs: build-test
     runs-on: ubuntu-latest
@@ -54,6 +60,12 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+
+      - name: Download JAR from build job
+        uses: actions/download-artifact@v4
+        with:
+          name: app-transfer-money
+          path: target
 
       # Try login to GHCR
       - name: Log in to GHCR
